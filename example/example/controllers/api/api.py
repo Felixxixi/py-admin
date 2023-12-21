@@ -1,13 +1,12 @@
 import pecan
 
-from example.controllers.api import order
 from example.controllers.api import pinyin
+from example.controllers.api import user
 
 
 class ApiController(object):
-    orders = order.OrdersController()
-    testorder = order.OrdersController()
     pinyins = pinyin.PinyinController()
+    users = user.UserController()
 
     @pecan.expose("json")
     def index(self):

@@ -1,15 +1,13 @@
-import pecan
 from pecan import rest
+from wsmeext.pecan import wsexpose
 
-from example.common.decorators import api_response
 from example.model.database import Session
 from example.model.models import Pinyin
 
 
 class PinyinController(rest.RestController):
 
-    @pecan.expose()
-    @api_response
+    @wsexpose(str)
     def get(self):
         session = Session()
         pinyins = session.query(Pinyin).all()
